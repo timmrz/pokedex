@@ -1,0 +1,64 @@
+@import "../../scss/variables";
+
+.search {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 120px;
+
+	@media (max-width: 720px) {
+		margin-bottom: 60px;
+	}
+}
+
+.paginate {
+	margin: 128px auto 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 15px;
+	list-style: none;
+
+	@media (max-width: 540px) {
+		margin-top: 70px;
+		gap: 10px;
+	}
+
+	li {
+		width: 56px;
+		height: 56px;
+		border-radius: 8px;
+
+		@media (max-width: 540px) {
+			width: 36px;
+			height: 36px;
+		}
+
+		a {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			height: 100%;
+			width: 100%;
+			font-size: 24px;
+			color: $color-grey;
+			cursor: pointer;
+		}
+	}
+}
+
+:global {
+	.selected {
+		border: 2px solid $color-black;
+		a {
+			color: $color-black !important;
+		}
+	}
+
+	.previous,
+	.next {
+		border: 2px solid $color-grey;
+		a {
+			padding-bottom: 7px;
+		}
+	}
+}

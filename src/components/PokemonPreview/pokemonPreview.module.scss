@@ -1,0 +1,42 @@
+@import "../../scss/variables";
+
+.card {
+	width: 320px;
+	height: 398px;
+	border-radius: 8px;
+	overflow: hidden;
+	cursor: pointer;
+	transition: border 0.3s ease-in-out;
+
+	@media (max-width: 400px) {
+		width: 280px;
+		height: 350px;
+	}
+
+	&:hover {
+		outline: 2px solid $color-grey-dark;
+	}
+
+	p {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 25%;
+		width: 100%;
+		color: $color-white;
+		font-size: 24px;
+		background-color: $color-red;
+		text-transform: capitalize;
+	}
+}
+
+.imageBlock {
+	height: 75%;
+	background-color: $color-white;
+	padding: 30px;
+
+	img {
+		height: 100%;
+		width: 100%;
+	}
+}

@@ -1,25 +1,41 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
+import './App.scss';
+import Header from './components/Header/Header';
+import Home from './pages/Home/Home';
+import { Routes, Route } from 'react-router-dom'
+import PokemonInfo from './pages/PokemonInfo/PokemonInfo';
+
+
+
+
+
+
 
 function App() {
+
+
+  const client = new ApolloClient( {
+    uri: 'https://beta.pokeapi.co/graphql/v1beta',
+    cache: new InMemoryCache()
+  } );
+
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ApolloProvider client={client}>
+      <div className="App">
+        <Header />
+        <div className="container">
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/pokemon/:id' element={<PokemonInfo />} />
+            <Route path='/o-nas' element={<h1>About Us</h1>} />
+            <Route path='*' element={<h1>Page not found</h1>} />
+          </Routes>
+
+        </div>
+      </div>
+    </ApolloProvider>
   );
 }
 
